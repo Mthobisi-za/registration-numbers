@@ -1,3 +1,21 @@
+
+//DEFAULT VALUES
+function removedata(){
+    //name remove
+    function removeNameInput(){
+         document.querySelector("#regN").value = ""
+    }
+    removeNameInput()
+    //name remove
+    function removeRadio(){
+        document.querySelector("#capetown").checked = false;
+        document.querySelector("#paarl").checked = false;
+        document.querySelector("#stelle").checked = false;
+        document.querySelector("#all").checked = false;
+    }
+    removeRadio()
+}
+//DEFAULT VALUES
 var btn = document.querySelector("#btn");
 var showw = document.querySelector(".show");
 var state = 0;
@@ -58,20 +76,108 @@ function addElements(){
     //loop through the array
  /*   
     */
-    
+    removedata()
 }
 function ShowValue(){
     function collect(){
         var li = document.getElementsByTagName("li")
         var radio = document.querySelector("input[name='group']:checked");
         var fun = businessLogic("", radio).ValidateRadio();
+        console.log(fun)
         if(fun !=="Please select town"){
-            console.log()
-            //hjhhjhjh
-            for(var i = 0; i < loo.length; i++){
-                
+            for(var i = 0; i < li.length; i++){
+                li[i].remove();
             }
-            var localS = localStorage.getItem("regNumber").split(",");
+            try{ 
+                li[0].remove();
+            }catch{
+                console.log("undefined")
+            }
+           
+            
+            var div = document.querySelector(".ul_append");
+            
+            if(fun==="all"){
+                ///REMOVE ELEMENTS
+                for(var i = 0; i < li.length; i++){
+                    li[i].remove();
+                }
+                try{ 
+                    li[0].remove();
+                }catch{
+                    console.log("undefined")
+                }
+                //REMOVE ELEMENTS
+                var localS = localStorage.getItem("regNumber").split(",")
+                localS.forEach(val=>{
+                    var li = document.createElement("li");
+                    li.textContent = val;
+                    div.append(li);
+                })
+            } else if(fun === "CA"){
+                ///REMOVE ELEMENTS
+                for(var i = 0; i < li.length; i++){
+                    li[i].remove();
+                }
+                try{ 
+                    li[0].remove();
+                }catch{
+                    console.log("undefined")
+                }
+                //REMOVE ELEMENTS
+                var localS = localStorage.getItem("regNumber").split(",")
+                localS.forEach(val=>{
+                    if(val.startsWith(fun)){
+                        var li = document.createElement("li");
+                        li.textContent = val;
+                        div.append(li);
+                    }  else{
+                        
+                    }
+                })
+            }else if(fun === "CJ"){
+                ///REMOVE ELEMENTS
+                for(var i = 0; i < li.length; i++){
+                    li[i].remove();
+                }
+                try{ 
+                    li[0].remove();
+                }catch{
+                    console.log("undefined")
+                }
+                //REMOVE ELEMENTS
+                var localS = localStorage.getItem("regNumber").split(",")
+                localS.forEach(val=>{
+                    if(val.startsWith(fun)){
+                        var li = document.createElement("li");
+                        li.textContent = val;
+                        div.append(li);
+                    }  else{
+                        
+                    }
+                })
+            } else if(fun === "CL"){
+                ///REMOVE ELEMENTS
+                for(var i = 0; i < li.length; i++){
+                    li[i].remove();
+                }
+                try{ 
+                    li[0].remove();
+                }catch{
+                    console.log("undefined")
+                }
+                //REMOVE ELEMENTS
+                var localS = localStorage.getItem("regNumber").split(",")
+                localS.forEach(val=>{
+                    if(val.startsWith(fun)){
+                        var li = document.createElement("li");
+                        li.textContent = val;
+                        div.append(li);
+                    }  else{
+                        
+                    }
+                })
+            } else{}
         }else{
             document.querySelector(".sp").innerHTML = fun;
             setTimeout(function(){
@@ -79,9 +185,9 @@ function ShowValue(){
             },2000)
         }
     }
-    collect()
+    collect();
 }
 btn.addEventListener("click", addElements);
 ///show info
 
-//showw.addEventListener("click", ShowValue)
+showw.addEventListener("click", ShowValue)

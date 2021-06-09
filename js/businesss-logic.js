@@ -12,7 +12,16 @@ function businessLogic(str, tag){
     function ValidateRadio(){
         try{
             var value = tag.value
-            return value;
+                if(value == "capetown"){
+                     return "CA"
+                } else if(value== "paarl"){
+                     return "CJ"
+                }else if(value == "stellenbosch"){
+                     return "CL"
+                } else if(value == "All"){
+                    return "all"
+                }
+            
         } catch{
             return "Please select town"
         }
