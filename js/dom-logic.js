@@ -191,3 +191,4 @@ btn.addEventListener("click", addElements);
 ///show info
 
 showw.addEventListener("click", ShowValue)
+ removedata();
