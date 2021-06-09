@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/registration_number.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Nmbers</title>
+</head>
+<body>
+    
+    <div class="baseQ"> 
+        <div class="base">
+                <div class="nav"> 
+                    <div class="lp">
+                    <label for="regN">Registration Number </label> <br> <br>
+                    <input type="text" id="regN"> <br> <span class="span" style="color: red;"></span> <br>
+                    <button id="btn">Add</button> <br> <br> <br>
+                    <!------radio buttons-->
+                    <div class="div">
+                        <label for="capetown">Cape Town</label> <input type="radio" name="group" value="capetown" id="capetown">
+                        <label for="paarl">Paarl</label> <input type="radio" name="group" value="paarl" id="paarl">
+                        <label for="stelle">Stellenbosch</label> <input type="radio" name="group" value="paarl" id="stelle">
+                        <label for="all">All</label> <input type="radio" name="group" value="All" id="all">
+                    </div> <br>
+                    <span class="sp" style="color: red;"></span> 
+                    <br>
+                    <button class="show">Show</button>
+                </div> <br>
+               <div class="append">
+                    <ul class="ul_append">
+                            
+                    </ul>
+                </div>
+                </div>
+                <!------appended data-->
+               
+            </div>
+         </div>
+
+         <!----call the javascriopts-->
+         
+         <script src="js/businesss-logic.js"></script>
+         <script src="js/dom-logic.js"></script>
+</body>
+</html>
