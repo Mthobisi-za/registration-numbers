@@ -1,69 +1,71 @@
-
 //DEFAULT VALUES
-function removedata(){
+function removedata() {
     //name remove
-    function removeNameInput(){
-         document.querySelector("#regN").value = ""
+    function removeNameInput() {
+        document.querySelector("#regN").value = ""
     }
     removeNameInput()
-    //name remove
-    function removeRadio(){
+        //name remove
+    function removeRadio() {
         document.querySelector("#capetown").checked = false;
         document.querySelector("#paarl").checked = false;
         document.querySelector("#stelle").checked = false;
         document.querySelector("#all").checked = false;
     }
-    removeRadio()
+    removeRadio();
+    return
 }
 //DEFAULT VALUES
 var btn = document.querySelector("#btn");
 var showw = document.querySelector(".show");
 var state = 0;
-if(0 === state){
+if (0 === state) {
     var local = localStorage.getItem("regNumber");
-    if(local !== null){
-    var locall = localStorage.getItem("regNumber").split(",");
-    var div = document.querySelector(".ul_append");
-    
-    locall.forEach(ele =>{
-        var li = document.createElement("li");
-        li.textContent = ele;
-        div.append(li)
-    });
-    state = state + 1;
-}else{
+    if (local !== null) {
+        var locall = localStorage.getItem("regNumber").split(",");
+        var div = document.querySelector(".ul_append");
+
+        locall.forEach(ele => {
+            var li = document.createElement("li");
+            li.textContent = ele;
+            div.append(li)
+        });
+        state = state + 1;
+    } else {
+
+    }
+} else {
 
 }
-} else{
 
-}
-function addElements(){
+function addElements() {
 
     var regNum = document.querySelector("#regN").value.toUpperCase();
     var data = businessLogic(regNum).validateData();
-    function storeValue(){
-        if(data === "please enter valid 'Reg Number'"){
+
+    function storeValue() {
+        if (data === "please enter valid 'Reg Number'") {
             var errSpan = document.querySelector(".span");
             errSpan.innerHTML = data
-            setTimeout(function(){
-                document.querySelector(".span").innerHTML =""
-            },2000)
-        } else{
+            setTimeout(function() {
+                document.querySelector(".span").innerHTML = ""
+            }, 2000)
+        } else {
             var local = localStorage.getItem("regNumber")
-            if(local !== null){
+            if (local !== null) {
                 var arrg = local.split(",");
-                if(arrg.indexOf(data) === -1){
+                if (arrg.indexOf(data) === -1) {
                     arrg.push(data);
                     localStorage.setItem("regNumber", arrg);
                     var div = document.querySelector(".ul_append")
                     var li = document.createElement("li");
                     li.textContent = data;
                     div.append(li);
-                 } else{
+                } else {
 
-                 }
-                
-            } else{
+                }
+
+            } else {
                 var temp = [data]
                 localStorage.setItem("regNumber", temp);
                 var div = document.querySelector(".ul_append")
@@ -72,123 +74,125 @@ function addElements(){
                 div.append(li);
             }
         }
-    }; storeValue();
+    };
+    storeValue();
     //loop through the array
- /*   
-    */
+    /*   
+     */
     removedata()
 }
-function ShowValue(){
-    function collect(){
+
+function ShowValue() {
+    function collect() {
         var li = document.getElementsByTagName("li")
         var radio = document.querySelector("input[name='group']:checked");
         var fun = businessLogic("", radio).ValidateRadio();
         console.log(fun)
-        if(fun !=="Please select town"){
-            for(var i = 0; i < li.length; i++){
+        if (fun !== "Please select town") {
+            for (var i = 0; i < li.length; i++) {
                 li[i].remove();
             }
-            try{ 
+            try {
                 li[0].remove();
-            }catch{
+            } catch {
                 console.log("undefined")
             }
-           
-            
+
+
             var div = document.querySelector(".ul_append");
-            
-            if(fun==="all"){
+
+            if (fun === "all") {
                 ///REMOVE ELEMENTS
-                for(var i = 0; i < li.length; i++){
+                for (var i = 0; i < li.length; i++) {
                     li[i].remove();
                 }
-                try{ 
+                try {
                     li[0].remove();
-                }catch{
+                } catch {
                     console.log("undefined")
                 }
                 //REMOVE ELEMENTS
                 var localS = localStorage.getItem("regNumber").split(",")
-                localS.forEach(val=>{
+                localS.forEach(val => {
                     var li = document.createElement("li");
                     li.textContent = val;
                     div.append(li);
                 })
-            } else if(fun === "CA"){
+            } else if (fun === "CA") {
                 ///REMOVE ELEMENTS
-                for(var i = 0; i < li.length; i++){
+                for (var i = 0; i < li.length; i++) {
                     li[i].remove();
                 }
-                try{ 
+                try {
                     li[0].remove();
-                }catch{
+                } catch {
                     console.log("undefined")
                 }
                 //REMOVE ELEMENTS
                 var localS = localStorage.getItem("regNumber").split(",")
-                localS.forEach(val=>{
-                    if(val.startsWith(fun)){
+                localS.forEach(val => {
+                    if (val.startsWith(fun)) {
                         var li = document.createElement("li");
                         li.textContent = val;
                         div.append(li);
-                    }  else{
-                        
+                    } else {
+
                     }
                 })
-            }else if(fun === "CJ"){
+            } else if (fun === "CJ") {
                 ///REMOVE ELEMENTS
-                for(var i = 0; i < li.length; i++){
+                for (var i = 0; i < li.length; i++) {
                     li[i].remove();
                 }
-                try{ 
+                try {
                     li[0].remove();
-                }catch{
+                } catch {
                     console.log("undefined")
                 }
                 //REMOVE ELEMENTS
                 var localS = localStorage.getItem("regNumber").split(",")
-                localS.forEach(val=>{
-                    if(val.startsWith(fun)){
+                localS.forEach(val => {
+                    if (val.startsWith(fun)) {
                         var li = document.createElement("li");
                         li.textContent = val;
                         div.append(li);
-                    }  else{
-                        
+                    } else {
+
                     }
                 })
-            } else if(fun === "CL"){
+            } else if (fun === "CL") {
                 ///REMOVE ELEMENTS
-                for(var i = 0; i < li.length; i++){
+                for (var i = 0; i < li.length; i++) {
                     li[i].remove();
                 }
-                try{ 
+                try {
                     li[0].remove();
-                }catch{
+                } catch {
                     console.log("undefined")
                 }
                 //REMOVE ELEMENTS
                 var localS = localStorage.getItem("regNumber").split(",")
-                localS.forEach(val=>{
-                    if(val.startsWith(fun)){
+                localS.forEach(val => {
+                    if (val.startsWith(fun)) {
                         var li = document.createElement("li");
                         li.textContent = val;
                         div.append(li);
-                    }  else{
-                        
+                    } else {
+
                     }
                 })
-            } else{}
-        }else{
+            } else {}
+        } else {
             document.querySelector(".sp").innerHTML = fun;
-            setTimeout(function(){
+            setTimeout(function() {
                 document.querySelector(".sp").innerHTML = "";
-            },2000)
+            }, 2000)
         }
     }
     collect();
+    removedata()
 }
 btn.addEventListener("click", addElements);
 ///show info
 
 showw.addEventListener("click", ShowValue)
- removedata();
