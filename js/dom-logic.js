@@ -1,4 +1,13 @@
 //DEFAULT VALUES
+var msg = document.querySelector(".disa");
+setTimeout(function() {
+    msg.remove()
+}, 5000);
+var ms = document.querySelector(".disaa");
+setTimeout(function() {
+        ms.remove()
+    }, 8000)
+    //remove message
 function removedata() {
     //name remove
     function removeNameInput() {
@@ -44,12 +53,12 @@ function addElements() {
     var data = businessLogic(regNum).validateData();
 
     function storeValue() {
-        if (data === "please enter valid 'Reg Number'") {
+        if (data === "please enter valid Reg Number e.g 'CA 123-897'" || data == "We only accept registration numbers for CA, CL and CJ") {
             var errSpan = document.querySelector(".span");
             errSpan.innerHTML = data
             setTimeout(function() {
                 document.querySelector(".span").innerHTML = ""
-            }, 2000)
+            }, 3000)
         } else {
             var local = localStorage.getItem("regNumber")
             if (local !== null) {
@@ -112,12 +121,27 @@ function ShowValue() {
                     console.log("undefined")
                 }
                 //REMOVE ELEMENTS
-                var localS = localStorage.getItem("regNumber").split(",")
-                localS.forEach(val => {
-                    var li = document.createElement("li");
-                    li.textContent = val;
-                    div.append(li);
-                })
+                var localS = localStorage.getItem("regNumber");
+                if (localS !== null) {
+                    localS = localS.split(",")
+
+                    localS.forEach(val => {
+                        var li = document.createElement("li");
+                        li.textContent = val;
+                        div.append(li);
+                    })
+                } else {
+                    var span = document.querySelector(".lop")
+                    span.innerHTML = "Looks like there are no registration numbers yet";
+                    setTimeout(function() {
+                        span.textContent = "";
+                    }, 3000)
+                }
+                //check if there are any
+
+
+                //check if there are any
+
             } else if (fun === "CA") {
                 ///REMOVE ELEMENTS
                 for (var i = 0; i < li.length; i++) {
@@ -138,7 +162,17 @@ function ShowValue() {
                     } else {
 
                     }
-                })
+                });
+                var child = document.getElementsByTagName("li");
+                if (child.length == 0) {
+                    var span = document.querySelector(".lop")
+                    span.innerHTML = "Looks like there are no registration numbers yet";
+                    setTimeout(function() {
+                        span.textContent = "";
+                    }, 3000)
+                } else {
+
+                }
             } else if (fun === "CJ") {
                 ///REMOVE ELEMENTS
                 for (var i = 0; i < li.length; i++) {
@@ -159,7 +193,17 @@ function ShowValue() {
                     } else {
 
                     }
-                })
+                });
+                var child = document.getElementsByTagName("li");
+                if (child.length == 0) {
+                    var span = document.querySelector(".lop")
+                    span.innerHTML = "Looks like there are no registration numbers yet";
+                    setTimeout(function() {
+                        span.textContent = "";
+                    }, 3000)
+                } else {
+
+                }
             } else if (fun === "CL") {
                 ///REMOVE ELEMENTS
                 for (var i = 0; i < li.length; i++) {
@@ -180,8 +224,23 @@ function ShowValue() {
                     } else {
 
                     }
-                })
-            } else {}
+                });
+
+                var child = document.getElementsByTagName("li");
+                if (child.length == 0) {
+                    var span = document.querySelector(".lop")
+                    span.innerHTML = "Looks like there are no registration numbers yet";
+                    setTimeout(function() {
+                        span.textContent = "";
+                    }, 3000)
+                } else {
+
+                }
+
+            } else {
+
+            }
+
         } else {
             document.querySelector(".sp").innerHTML = fun;
             setTimeout(function() {

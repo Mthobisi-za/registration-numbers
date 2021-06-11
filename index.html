@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="css/registration_number.css">
     <meta charset="UTF-8">
@@ -7,14 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Nmbers</title>
 </head>
+
 <body>
-    
-    <div class="baseQ"> 
+
+    <div class="baseQ">
         <div class="base">
-                <div class="nav"> 
-                    <div class="lp">
+            <div class="nav">
+                <div class="lp">
+                    <h6 style="color: purple;" class="disa">We only accept registration numbers for Cape Town, Paarl and Stellenbosch</h6>
+                    <h6 style="color: purple;" class="disaa">Accepted formats "CA 908-345"</h6>
                     <label for="regN">Registration Number </label> <br> <br>
-                    <input type="text" id="regN"> <br> <span class="span" style="color: red;"></span> <br>
+                    <input type="text" placeholder="CA 123-897" maxlength="10" id="regN"> <br> <br> <span class="span" style="color: red;"></span> <br>
                     <button id="btn">Add</button> <br> <br> <br>
                     <!------radio buttons-->
                     <div class="div">
@@ -23,24 +27,26 @@
                         <label for="stelle">Stellenbosch</label> <input type="radio" name="group" value="stellenbosch" id="stelle">
                         <label for="all">All</label> <input type="radio" name="group" value="All" id="all">
                     </div> <br>
-                    <span class="sp" style="color: red;"></span> 
+                    <span class="sp" style="color: red;"></span>
                     <br>
                     <button class="show">Show</button>
                 </div> <br>
-               <div class="append">
+                <div class="append">
+                    <h6 class="lop" style="color: purple; text-align: center;"></h6>
                     <ul class="ul_append">
-                            
+
                     </ul>
                 </div>
-                </div>
-                <!------appended data-->
-               
             </div>
-         </div>
+            <!------appended data-->
 
-         <!----call the javascriopts-->
-         
-         <script src="js/businesss-logic.js"></script>
-         <script src="js/dom-logic.js"></script>
+        </div>
+    </div>
+
+    <!----call the javascriopts-->
+
+    <script src="js/businesss-logic.js"></script>
+    <script src="js/dom-logic.js"></script>
 </body>
+
 </html>
