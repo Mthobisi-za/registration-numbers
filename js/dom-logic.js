@@ -6,7 +6,7 @@ setTimeout(function() {
 var ms = document.querySelector(".disaa");
 setTimeout(function() {
         ms.remove()
-    }, 8000)
+    }, 10000)
     //remove message
 function removedata() {
     //name remove
@@ -53,7 +53,7 @@ function addElements() {
     var data = businessLogic(regNum).validateData();
 
     function storeValue() {
-        if (data === "please enter valid Reg Number e.g 'CA 123-897'" || data == "We only accept registration numbers for CA, CL and CJ") {
+        if (data === "please enter valid Reg Number e.g 'CA 123-897' OR 'CJ 7865466' OR 'CL 098 879'" || data == "We only accept registration numbers for CA, CL and CJ") {
             var errSpan = document.querySelector(".span");
             errSpan.innerHTML = data
             setTimeout(function() {
@@ -71,7 +71,11 @@ function addElements() {
                     li.textContent = data;
                     div.append(li);
                 } else {
-
+                    var span = document.querySelector(".lop");
+                    span.innerHTML = "Reg number already exist."
+                    setTimeout(function() {
+                        document.querySelector(".lop").innerHTML = ""
+                    }, 3000)
                 }
 
             } else {
