@@ -1,5 +1,6 @@
 //DEFAULT VALUES
 var msg = document.querySelector(".disa");
+
 setTimeout(function() {
     msg.remove()
 }, 5000);
@@ -255,7 +256,9 @@ function ShowValue() {
     collect();
     removedata()
 }
+
+
 btn.addEventListener("click", addElements);
 ///show info
 
-showw.addEventListener("click", ShowValue)
+showw.addEventListener("click", ShowValue);
